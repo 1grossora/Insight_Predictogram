@@ -1,3 +1,11 @@
+# Don't upload photos or media 
+*.jpg
+*.mp4
+# But we will allow png
+
+# Don't upload jsons. under rare occasion we might want this
+*.json
+
 # Prerequisites
 *.d
 
