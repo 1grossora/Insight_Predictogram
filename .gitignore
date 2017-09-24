@@ -1,10 +1,19 @@
+# DONT UPLOAD YOUR FILE WITH THE GOOGLE KEY
+cleanup_vision.py
+
 # Don't upload photos or media 
 *.jpg
 *.mp4
-# But we will allow png
+# But we will allow png for when we make a blog
+
+# no compiled python files 
+*.pyc
 
 # Don't upload jsons. under rare occasion we might want this
 *.json
+
+# scraper logs 
+*.log
 
 # Prerequisites
 *.d
