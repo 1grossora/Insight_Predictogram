@@ -1,6 +1,67 @@
 ## Predictogram: Predicting the number of Likes on Instagram
 
 ### Summary:
+Social media marketing is a growing space. This framework provides a method to predict expected number of likes for posts of a particular.
+
+## Getting Data
+
+This framework requires data from two sources, SocialBlade and Scraped from Instagram. We will use my personal Instagram as an example. My user name is groryangro
+
+#### Getting SocialBlade data 
+
+From the top directory:
+
+```
+ cd scripts/
+ python make_follwer_csv.py groryangro
+```
+This script requires an input which is the username of the profile you are interested in. For this case the username is groryangro.
+
+#### Getting Instagram data 
+
+This comes from an online scraper located here. 
+
+From the top directory:
+
+```
+ cd scripts/
+ python profile_scrape.py groryangro
+```
+
+##### Data Cleaning 
+Note, for now this will require a googlecloud key. I have one... you can get one also and then use this tool.  I may eventually implement my own NN to deal with facial recognition but for now we use google cloud. 
+
+From the top directory:
+
+```
+ cd scripts/
+python submission_vision_json_wrapper.py groryangro
+python clean_vision.py groryangro
+```
+Now you have the data. 
+##
+
+
+
+
+## FrameWork
+
+#### data Directory  
+This is where all the data such as images, feature_csv, and histortical_csv is located.
+
+#### Utils Directory
+This directory contains scripts for making the dataframes, plots and other support features. 
+
+#### workspace Directory 
+This directory is the area to explore models for various users. Go have fun
+
+
+
+
+
+
+
+### Summary:
 Social media marketing is a growing space. Brand and digital marketers pay Instagram influencers to post products on their profiles to reach certain audiences. In this post, I will first address what data is publicly available for Instagram profiles. Then, explore the data for any valuable insights towards how to construct our model. Next, I construct a feature list and build a regression model to predict the number of likes for an influencers subsequent posts. Finally I conclude with future extensions and next obvious steps.
 
 [![Markdown preferences pane](img/Ig_Graph_Logo.png )](https://github.com/1grossora/Insight_Predictogram)
@@ -60,7 +121,7 @@ There were 3 models I chose to explore, Lasso , Elastic Net, and Random Forest. 
 
 ![Number of Likes](img/Chiara_models.png )
 
-A grid search(although computationally intensive) was used to optimize the hyper parameters for each mode. The radom forest was chose and returned an r2 score 0.71 for model prediction vs true. Each model used 10 fold cross validation to avoid over training. The learning curves and r2 score is shown below. 
+A grid search(although computationally intensive) was used to optimize the hyper parameters for each mode. The random forest was chose and returned an r2 score 0.71 for model prediction vs true. Each model used 10 fold cross validation to avoid over training. The learning curves and r2 score is shown below. 
 
 ![Number of Likes](img/Chiara_RandomForest.png)
 
