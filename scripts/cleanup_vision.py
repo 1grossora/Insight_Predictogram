@@ -5,10 +5,17 @@ import requests
 # my key
 
 ### Add your own key! Don't use mine
-#mykey ='XXXXXXXXXXXXXXGOGETAKEYXXXXXXXXXXXXXXXX'
+mykey ='XXXXXXXXXXXXXXGOGETAKEYXXXXXXXXXXXXXXXX'
+
 
 cwd = os.getcwd()
-user = 'groryangro'
+user = sys.argv[1]
+yn = raw_input("Is '{}' the username you want to clean? Y/n \n".format(user))
+if yn!='Y':
+        # try again 
+            sys.exit('Will not scrape')
+print 'scrapping {} from SocialBlade'.format(user)
+
 uservisdir = '{}/../data/Vision/{}/'.format(cwd,user)
 usercleandir = '{}/../data/Clean_Vision/{}/'.format(cwd,user)
 if not os.path.isdir(usercleandir):

@@ -1,4 +1,4 @@
-import os 
+import os, sys
 import requests
 from bs4 import BeautifulSoup
 import csv
@@ -33,8 +33,13 @@ def csv_for_user(user):
         writer = csv.writer(f, delimiter=',')
         writer.writerows(zip(date,followers))
 
+user = sys.argv[1] 
+yn = raw_input("Is '{}' the username you want to scrape from SocialBlade? Y/n \n".format(user))
+if yn!='Y':
+    # try again 
+    sys.exit('Will not scrape')
 
-user = 'groryangro'
+print 'scrapping {} from SocialBlade'.format(user)
 
 csv_for_user(user)
 

@@ -5,7 +5,16 @@ import subprocess
 cwd = os.getcwd()
 
 # Ask the user 
-user = 'groryangro'
+#user = 'groryangro'
+
+user = sys.argv[1]
+yn = raw_input("Is '{}' the username to submit to GoogleCloud? Y/n \n".format(user))
+
+if yn!='Y':
+        # try again 
+            sys.exit('Will not scrape')
+
+print 'scrapping {} from SocialBlade'.format(user)
 
 # Loop through the directory and submit
 scrapedir ='../data/Scraped_Profile/{}'.format(user)
